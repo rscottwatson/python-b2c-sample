@@ -29,7 +29,7 @@ REDIRECT_PATH = "/getAToken"
 REDIRECT_PATH_MFA = "/getATokenMFA"
 
 # Set the address that the API is running under
-API_ENDPOINT = 'http://localhost:5001"
+API_ENDPOINT = "http://localhost:5001"
 
 # Scopes the application need to use
 SCOPES = [f"https://{b2c_tenant}.onmicrosoft.com/api/Account.Read",f"https://{b2c_tenant}.onmicrosoft.com/api/Account.Write"]
