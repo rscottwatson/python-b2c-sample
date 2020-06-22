@@ -1,0 +1,13 @@
+Flask>=1,<2
+werkzeug>=1,<2
+flask-session~=0.3.2
+requests>=2,<3
+msal>=0.6.1,<2
+WTForms==2.3.1
+flask-wtf==0.14.3
+
+# This line is a temporary workaround to address an issue Flask-Session module where sessions are not correctly 
+# written to disk (https://github.com/fengsp/flask-session/issues/119).  It installs a recently updated version of
+# cachelib (https://github.com/pallets/cachelib/pull/12) that prevented cache files from being updated.
+# This should be removed when the author of cachelib uploads the new package to PyPI.
+-e git+git://github.com/pallets/cachelib.git@master#egg=cachelib

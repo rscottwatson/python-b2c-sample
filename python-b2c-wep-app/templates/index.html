@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Python B2C Sample Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main {
+            margin-left: 30px
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .claims {
+            border: 1px outset #F2F2F2;
+            background-color: white;
+            width: 600px
+        }
+
+        #account {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 600px;
+            table-layout: fixed;
+        }
+
+        #account td,
+        #account th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #account tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #account tr:hover {
+            background-color: #ddd;
+        }
+
+        #account th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input[type=text],
+        select {
+            width: 300px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/publicapi">Test API</a>
+        <a href="/acctinfo">My Account</a>
+        <a href="/claims">My Claims</a>
+        <a href='{{_build_auth_url(redirect="authorized", authority=config["B2C_PROFILE_AUTHORITY"])}}'>Edit Profile</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="main">
+        <h1>Welcome {{user.get("name")}}</h1>
+        {% block content %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block content %}
+<div>
+<table id="account">
+  <tr>
+    <th scope="row">Email Address</th>
+    <td>{{account.get("email")}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Policy Number</th>
+    <td>{{account.get("policynumber")}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Beneficiary</th>
+    <td>{{account.get("beneficiary")}}</td>
+  </tr>
+</table>
+</div>
+<a class="button" href='/change'>Change Beneficiary >></a>
+</div>
+{% endblock %}
