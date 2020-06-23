@@ -39,7 +39,7 @@ def retrieve_id_token(code, scopes, redirect_uri, authority):
     result = _build_msal_app(authority=authority, cache=cache).acquire_token_by_authorization_code(
         request.args['code'],
         scopes=scopes,
-        redirect_uri= redirect_uri)
+        redirect_uri=redirect_uri)
     if "error" in result:
         return render_template("auth_error.html", result=result)
     if not session.get('user'):

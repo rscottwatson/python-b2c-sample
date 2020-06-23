@@ -47,13 +47,6 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-@app.errorhandler(AuthError)
-def handle_auth_error(ex):
-    print('handling error')
-    response = jsonify(ex.error)
-    response.status_code = ex.status_code
-    return response
-
 # Validate the header provided in the token
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
@@ -179,8 +172,7 @@ def update_policy_information(new_beneficiary):
                 account['beneficiary'] = new_beneficiary
                 update_accounts(accounts)
                 return 'Success'
-            else:
-                return 'Error.  Unable to update'
+        return 'Error.  Unable to update'
 
 # Controllers API
 
@@ -196,7 +188,7 @@ def public():
 @cross_origin(allow_headers=['Content-Type', 'Authorization'])
 @requires_auth
 def acctinfo():
-    if requires_scope("Account.Read"):
+    if requires_scope("Accounts.Read"):
         account = retrieve_policy_information()
         if account == "Record not found":
             return "Record not found", 400
@@ -211,7 +203,7 @@ def acctinfo():
 @cross_origin(allow_headers=['Content-Type', 'Authorization'])
 @requires_auth
 def acctudpate():
-    if requires_scope("Account.Write"):
+    if requires_scope("Accounts.Write"):
         result = update_policy_information(request.args.get('name'))
         if result == 'Success':
             return 'Success'
