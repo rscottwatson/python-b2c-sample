@@ -32,7 +32,7 @@ REDIRECT_PATH_MFA = "/getATokenMFA"
 API_ENDPOINT = "http://localhost:5001"
 
 # Scopes the application need to use
-SCOPES = [f"https://{b2c_tenant}.onmicrosoft.com/api/Account.Read",f"https://{b2c_tenant}.onmicrosoft.com/api/Account.Write"]
+SCOPES = [f"https://{b2c_tenant}.onmicrosoft.com/api/Accounts.Read",f"https://{b2c_tenant}.onmicrosoft.com/api/Accounts.Write"]
 
 # Specifies to flask-sessions module that server-side sessions should be written to disk
 SESSION_TYPE = "filesystem"
