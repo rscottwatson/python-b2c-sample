@@ -19,6 +19,6 @@ Access to the front-end application is secured using Azure AD B2C.  The front-en
 
 ## Setup
 
-Temporary holder
+Follow the instructions detailed in this [blog post](https://journeyofthegeek.com/2020/06/22/python-sample-web-app-and-api-for-azure-ad-b2c/) to setup the solution.
 
 
