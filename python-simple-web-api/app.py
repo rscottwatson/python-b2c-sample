@@ -11,10 +11,10 @@ from jose import jwt
 app = Flask(__name__)
 
 # Provide the B2C Tenant name, specify the non-MFA B2C Policy name, and the API client id
-TENANT_NAME = os.getenv('B2C_TENANT_NAME')
-TENANT_ID = os.getenv('B2C_TENANT_ID')
-B2C_POLICY = os.getenv('B2C_SIGN_UP_IN_POLICY')
-API_AUDIENCE = os.getenv('API_CLIENT_ID')
+TENANT_NAME = os.getenv('TENANT_NAME')
+TENANT_ID = os.getenv('TENANT_ID')
+B2C_POLICY = os.getenv('B2C_POLICY')
+CLIENT_ID = os.getenv('CLIENT_ID')
 
 # Enable logging
 logging.basicConfig(
@@ -112,7 +112,7 @@ def requires_auth(f):
                     token,
                     rsa_key,
                     algorithms=["RS256"],
-                    audience=API_AUDIENCE,
+                    audience=CLIENT_ID,
                     issuer="https://" + TENANT_NAME +
                     ".b2clogin.com/" + TENANT_ID + "/v2.0/"
                 )
