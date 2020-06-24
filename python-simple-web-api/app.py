@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 # Provide the B2C Tenant name, specify the non-MFA B2C Policy name, and the API client id
 TENANT_NAME = os.getenv('B2C_TENANT_NAME')
+TENANT_ID = os.getenv('B2C_TENANT_ID')
 B2C_POLICY = os.getenv('B2C_SIGN_UP_IN_POLICY')
 API_AUDIENCE = os.getenv('API_CLIENT_ID')
 
