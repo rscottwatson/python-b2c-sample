@@ -113,7 +113,7 @@ def requires_auth(f):
                     algorithms=["RS256"],
                     audience=API_AUDIENCE,
                     issuer="https://" + TENANT_NAME +
-                    ".b2clogin.com/2431b218-604e-49e5-b0e4-c184facb0304/v2.0/"
+                    ".b2clogin.com/" + TENANT_ID + "/v2.0/"
                 )
             except jwt.ExpiredSignatureError:
                 raise AuthError({"code": "token_expired",
